@@ -5,18 +5,24 @@
 <title>Quà đặc biệt🎁</title>
 <style>
   body { text-align: center; margin-top: 100px; font-family: sans-serif; }
-  video { display: none; width: 100%; }
+  video { display: none; width: 100%; max-width: 800px; }
+  #cover { cursor: pointer; }
 </style>
 </head>
 <body>
 
 <h2>Bấm vào 🎁 để nhận quà bất ngờ</h2>
 
-<video id="rick" src="rickroll.mp4"></video>
+<!-- Ảnh tạm hiển thị trước khi video phát -->
+<img id="cover" src="cover.jpg" alt="🎁" width="300">
+
+<video id="rick" src="rickroll.mp4" preload="auto"></video>
 
 <script>
-  document.body.addEventListener("click", () => {
-    const v = document.getElementById("rick");
+  const cover = document.getElementById("cover");
+  const v = document.getElementById("rick");
+  cover.addEventListener("click", () => {
+    cover.style.display = "none";
     v.style.display = "block";
     v.requestFullscreen();
     v.play();
